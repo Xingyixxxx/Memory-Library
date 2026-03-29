@@ -1,0 +1,92 @@
+{
+  "_comment": "记忆博物馆 — AI 管道配置文件。你可以直接编辑此文件来切换模型、语言和参数。",
+  "stt": {
+    "_comment": "语音转文字 (Speech-to-Text) 配置",
+    "provider": "deepgram",
+    "model": "nova-2",
+    "language": "zh-CN",
+    "alternativeLanguages": {
+      "中文简体": "zh-CN",
+      "英语": "en",
+      "多语言自动识别": "multi"
+    },
+    "options": {
+      "smart_format": true,
+      "punctuate": true,
+      "paragraphs": true,
+      "utterances": true,
+      "diarize": false
+    }
+  },
+  "llm": {
+    "_comment": "大语言模型润色 配置",
+    "provider": "gemini",
+    "model": "gemini-2.5-pro",
+    "alternativeModels": {
+      "高质量 (推荐)": "gemini-2.5-pro",
+      "快速轻量": "gemini-2.5-flash",
+      "极速节能": "gemini-3.1-flash-lite-preview"
+    },
+    "temperature": 0.75,
+    "maxOutputTokens": 4096,
+    "language": "zh-CN",
+    "photoText": {
+      "_comment": "单张照片文案设置",
+      "maxLength": 500,
+      "typicalLength": 100,
+      "style": "简洁画面感"
+    },
+    "summary": {
+      "_comment": "事件总结散文设置",
+      "enabled": true,
+      "targetReadingMinutes": {
+        "min": 1,
+        "max": 2
+      },
+      "charsPerMinute": 250,
+      "scalingRule": {
+        "_comment": "根据照片数量动态调整长度",
+        "minPhotos": 1,
+        "maxPhotos": 200,
+        "minChars": 250,
+        "maxChars": 5000
+      }
+    }
+  },
+  "tts": {
+    "_comment": "文字转语音 (Text-to-Speech) 配置",
+    "provider": "gemini",
+    "model": "gemini-2.5-flash-preview-tts",
+    "alternativeModels": {
+      "Flash TTS": "gemini-2.5-flash-preview-tts"
+    },
+    "voiceName": "Kore",
+    "alternativeVoices": {
+      "Kore (女·温柔)": "Kore",
+      "Aoede (女·明亮)": "Aoede",
+      "Leda (女·沉稳)": "Leda",
+      "Puck (男·温暖)": "Puck",
+      "Charon (男·深沉)": "Charon",
+      "Orus (男·中性)": "Orus",
+      "Fenrir (男·低沉)": "Fenrir",
+      "Zephyr (中性·空灵)": "Zephyr"
+    },
+    "speakingStyle": "用温柔、沉静的声音朗读，像在安静的夜晚跟最亲近的人讲述一段旧时光。语速偏慢，段落之间留有适当停顿，让听者有时间去感受画面。",
+    "sampleRate": 24000,
+    "channels": 1,
+    "bitDepth": 16
+  },
+  "recording": {
+    "_comment": "麦克风录音设置 (需要安装 sox: brew install sox)",
+    "format": "wav",
+    "sampleRate": 16000,
+    "channels": 1,
+    "bitDepth": 16
+  },
+  "output": {
+    "_comment": "输出目录设置",
+    "dir": "./output",
+    "saveIntermediateResults": true,
+    "generateReport": true
+  }
+}

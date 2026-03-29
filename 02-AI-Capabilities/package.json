@@ -1,0 +1,29 @@
+{
+  "name": "memory-museum-ai-capabilities",
+  "version": "1.0.0",
+  "description": "记忆博物馆 — AI 能力测试模块 (STT / LLM / TTS)",
+  "type": "module",
+  "scripts": {
+    "test:stt": "npx tsx tests/test-stt.ts",
+    "test:llm": "npx tsx tests/test-llm.ts",
+    "test:tts": "npx tsx tests/test-tts.ts",
+    "test:pipeline": "npx tsx tests/test-pipeline.ts",
+    "record": "npx tsx src/utils/record-cli.ts"
+  },
+  "dependencies": {
+    "@deepgram/sdk": "^3.9.0",
+    "@google/genai": "^1.0.0",
+    "chalk": "^5.4.1",
+    "dotenv": "^16.4.7",
+    "wav": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/wav": "^1.0.4",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
