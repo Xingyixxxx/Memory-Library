@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+
+# Generated output files
+output/*.wav
+output/*.mp3
+output/*.json
+output/*.md
+output/*.txt
+!output/.gitkeep
+
+# Sample audio files (large)
+samples/*.wav
+samples/*.mp3
+samples/*.m4a
+samples/*.ogg
+samples/*.webm
+!samples/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
